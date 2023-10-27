@@ -28,7 +28,7 @@ func populate_controls() -> void:
 	spin_box.allow_lesser = true
 	spin_box.step = 0.01
 	spin_box.set_anchors_preset(Control.PRESET_FULL_RECT)
-	spin_box.connect("value_changed", self, "set_node_value")
+	spin_box.connect("value_changed", set_node_value)
 	add_child(spin_box)
 
 func populate_value(value) -> void:

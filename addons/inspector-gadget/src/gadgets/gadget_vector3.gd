@@ -8,7 +8,7 @@ func _init(in_node_path: NodePath = NodePath(), in_subnames: String = ""):
 	pass
 
 func set_node_path(new_node_path: NodePath):
-	.set_node_path(new_node_path)
+	super.set_node_path(new_node_path)
 
 	if not has_controls():
 		return
@@ -22,7 +22,7 @@ func set_node_path(new_node_path: NodePath):
 	float_gadget_z.node_path = node_path
 
 func set_subnames(new_subnames: String):
-	.set_subnames(new_subnames)
+	super.set_subnames(new_subnames)
 
 	if not has_controls():
 		return
@@ -56,23 +56,25 @@ func populate_controls() -> void:
 	var label_z = Label.new()
 	label_z.text = "Z"
 
-	var float_gadget_x = GadgetFloat.new("../../" + node_path, subnames + ":x")
+	var float_gadget_x = GadgetFloat.new("../../" + node_path.get_concatenated_names(), subnames + ":x")
 	float_gadget_x.name = "FloatGadgetX"
 	float_gadget_x.size_flags_horizontal = SIZE_EXPAND_FILL
-	float_gadget_x.connect("change_property_begin", self, "change_property_begin")
-	float_gadget_x.connect("change_property_end", self, "change_property_end")
+	
+	# TODO: Signals?
+#	float_gadget_x.connect("change_property_begin", change_property_begin)
+#	float_gadget_x.connect("change_property_end", change_property_end)
 
-	var float_gadget_y = GadgetFloat.new("../../" + node_path, subnames + ":y")
+	var float_gadget_y = GadgetFloat.new("../../" + node_path.get_concatenated_names(), subnames + ":y")
 	float_gadget_y.name = "FloatGadgetY"
 	float_gadget_y.size_flags_horizontal = SIZE_EXPAND_FILL
-	float_gadget_y.connect("change_property_begin", self, "change_property_begin")
-	float_gadget_y.connect("change_property_end", self, "change_property_end")
+#	float_gadget_y.connect("change_property_begin", change_property_begin)
+#	float_gadget_y.connect("change_property_end", change_property_end)
 
-	var float_gadget_z = GadgetFloat.new("../../" + node_path, subnames + ":z")
+	var float_gadget_z = GadgetFloat.new("../../" + node_path.get_concatenated_names(), subnames + ":z")
 	float_gadget_z.name = "FloatGadgetZ"
 	float_gadget_z.size_flags_horizontal = SIZE_EXPAND_FILL
-	float_gadget_z.connect("change_property_begin", self, "change_property_begin")
-	float_gadget_z.connect("change_property_end", self, "change_property_end")
+#	float_gadget_z.connect("change_property_begin", change_property_begin)
+#	float_gadget_z.connect("change_property_end", change_property_end)
 
 	var hbox = HBoxContainer.new()
 	hbox.name = "HBoxContainer"

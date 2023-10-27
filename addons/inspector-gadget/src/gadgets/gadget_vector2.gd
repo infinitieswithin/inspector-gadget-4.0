@@ -49,17 +49,17 @@ func populate_controls() -> void:
 	var label_y = Label.new()
 	label_y.text = "Y"
 
-	var float_gadget_x = GadgetFloat.new("../../" + node_path, subnames + ":x")
+	var float_gadget_x = GadgetFloat.new("../../" + node_path.get_concatenated_names(), subnames + ":x")
 	float_gadget_x.name = "FloatGadgetX"
 	float_gadget_x.size_flags_horizontal = SIZE_EXPAND_FILL
-	float_gadget_x.connect("change_property_begin", self, "change_property_begin")
-	float_gadget_x.connect("change_property_end", self, "change_property_end")
+	float_gadget_x.connect("change_property_begin", change_property_begin)
+	float_gadget_x.connect("change_property_end", change_property_end)
 
-	var float_gadget_y = GadgetFloat.new("../../" + node_path, subnames + ":y")
+	var float_gadget_y = GadgetFloat.new("../../" + node_path.get_concatenated_names(), subnames + ":y")
 	float_gadget_y.name = "FloatGadgetY"
 	float_gadget_y.size_flags_horizontal = SIZE_EXPAND_FILL
-	float_gadget_y.connect("change_property_begin", self, "change_property_begin")
-	float_gadget_y.connect("change_property_end", self, "change_property_end")
+	float_gadget_y.connect("change_property_begin", change_property_begin)
+	float_gadget_y.connect("change_property_end", change_property_end)
 
 	var hbox = HBoxContainer.new()
 	hbox.name = "HBoxContainer"

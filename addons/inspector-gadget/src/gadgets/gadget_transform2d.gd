@@ -56,23 +56,23 @@ func populate_controls() -> void:
 	var origin_label = Label.new()
 	origin_label.text = "Origin"
 
-	var x_axis_gadget = GadgetVector2.new("../../" + node_path, subnames + ":x")
+	var x_axis_gadget = GadgetVector2.new("../../" + node_path.get_concatenated_names(), subnames + ":x")
 	x_axis_gadget.name = "XAxisGadget"
 	x_axis_gadget.size_flags_horizontal = SIZE_EXPAND_FILL
-	x_axis_gadget.connect("change_property_begin", self, "change_property_begin")
-	x_axis_gadget.connect("change_property_end", self, "change_property_end")
+	x_axis_gadget.connect("change_property_begin", change_property_begin)
+	x_axis_gadget.connect("change_property_end", change_property_end)
 
-	var y_axis_gadget = GadgetVector2.new("../../" + node_path, subnames + ":y")
+	var y_axis_gadget = GadgetVector2.new("../../" + node_path.get_concatenated_names(), subnames + ":y")
 	y_axis_gadget.name = "YAxisGadget"
 	y_axis_gadget.size_flags_horizontal = SIZE_EXPAND_FILL
-	y_axis_gadget.connect("change_property_begin", self, "change_property_begin")
-	y_axis_gadget.connect("change_property_end", self, "change_property_end")
+	y_axis_gadget.connect("change_property_begin", change_property_begin)
+	y_axis_gadget.connect("change_property_end", change_property_end)
 
-	var origin_gadget = GadgetVector2.new("../../" + node_path, subnames + ":origin")
+	var origin_gadget = GadgetVector2.new("../../" + node_path.get_concatenated_names(), subnames + ":origin")
 	origin_gadget.name = "OriginGadget"
 	origin_gadget.size_flags_horizontal = SIZE_EXPAND_FILL
-	origin_gadget.connect("change_property_begin", self, "change_property_begin")
-	origin_gadget.connect("change_property_end", self, "change_property_end")
+	origin_gadget.connect("change_property_begin", change_property_begin)
+	origin_gadget.connect("change_property_end", change_property_end)
 
 	var vbox = VBoxContainer.new()
 	vbox.name = "VBoxContainer"

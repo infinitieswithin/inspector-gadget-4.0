@@ -18,20 +18,20 @@ func set_node_path(new_node_path: NodePath) -> void:
 	if node_path != new_node_path:
 		node_path = new_node_path
 		update_node()
-	update_configuration_warning()
+	update_configuration_warnings()
 
 func set_subnames(new_subnames: String) -> void:
 	if subnames != new_subnames:
 		subnames = new_subnames
 		_value_changed()
-	update_configuration_warning()
+	update_configuration_warnings()
 
 # Private setters
 func _set_node(new_node: Node) -> void:
 	if _node_ref.get_ref() != new_node:
 		_node_ref = weakref(new_node)
 		_node_changed()
-	update_configuration_warning()
+	update_configuration_warnings()
 
 func _set_value(new_value) -> void:
 	var value_type = typeof(_value)
@@ -170,11 +170,11 @@ func update_node() -> void:
 	else:
 		_set_node(null)
 
-func emit_change_property_begin(object, key) -> void:
+func _change_property_begin(object, key) -> void:
 	emit_signal("change_property_begin", object, key)
 
-func emit_change_property_end(object, key) -> void:
+func _change_property_end(object, key) -> void:
 	emit_signal("change_property_end", object, key)
 
-func emit_gadget_event(event) -> void:
+func _gadget_event(event) -> void:
 	emit_signal("gadget_event", event)

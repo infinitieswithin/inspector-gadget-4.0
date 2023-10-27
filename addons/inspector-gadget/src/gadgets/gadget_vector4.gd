@@ -66,29 +66,29 @@ func populate_controls() -> void:
 	var label_w = Label.new()
 	label_w.text = w_axis.capitalize()
 
-	var float_gadget_x = GadgetFloat.new("../../" + node_path, subnames + ":" + x_axis)
+	var float_gadget_x = GadgetFloat.new("../../" + node_path.get_concatenated_names(), subnames + ":" + x_axis)
 	float_gadget_x.name = "FloatGadgetX"
 	float_gadget_x.size_flags_horizontal = SIZE_EXPAND_FILL
-	float_gadget_x.connect("change_property_begin", self, "change_property_begin")
-	float_gadget_x.connect("change_property_end", self, "change_property_end")
+	float_gadget_x.connect("change_property_begin", _change_property_begin)
+	float_gadget_x.connect("change_property_end", _change_property_end)
 
-	var float_gadget_y = GadgetFloat.new("../../" + node_path, subnames + ":" + y_axis)
+	var float_gadget_y = GadgetFloat.new("../../" + node_path.get_concatenated_names(), subnames + ":" + y_axis)
 	float_gadget_y.name = "FloatGadgetY"
 	float_gadget_y.size_flags_horizontal = SIZE_EXPAND_FILL
-	float_gadget_y.connect("change_property_begin", self, "change_property_begin")
-	float_gadget_y.connect("change_property_end", self, "change_property_end")
+	float_gadget_y.connect("change_property_begin", change_property_begin)
+	float_gadget_y.connect("change_property_end", change_property_end)
 
-	var float_gadget_z = GadgetFloat.new("../../" + node_path, subnames + ":" + z_axis)
+	var float_gadget_z = GadgetFloat.new("../../" + node_path.get_concatenated_names(), subnames + ":" + z_axis)
 	float_gadget_z.name = "FloatGadgetZ"
 	float_gadget_z.size_flags_horizontal = SIZE_EXPAND_FILL
-	float_gadget_z.connect("change_property_begin", self, "change_property_begin")
-	float_gadget_z.connect("change_property_end", self, "change_property_end")
+	float_gadget_z.connect("change_property_begin", change_property_begin)
+	float_gadget_z.connect("change_property_end", change_property_end)
 
-	var float_gadget_w = GadgetFloat.new("../../" + node_path, subnames + ":" + w_axis)
+	var float_gadget_w = GadgetFloat.new("../../" + node_path.get_concatenated_names(), subnames + ":" + w_axis)
 	float_gadget_w.name = "FloatGadgetW"
 	float_gadget_w.size_flags_horizontal = SIZE_EXPAND_FILL
-	float_gadget_w.connect("change_property_begin", self, "change_property_begin")
-	float_gadget_w.connect("change_property_end", self, "change_property_end")
+	float_gadget_w.connect("change_property_begin", change_property_begin)
+	float_gadget_w.connect("change_property_end", change_property_end)
 
 	var hbox = HBoxContainer.new()
 	hbox.name = "HBoxContainer"

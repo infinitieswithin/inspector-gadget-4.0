@@ -29,7 +29,7 @@ func populate_controls() -> void:
 	spin_box.step = 1
 	spin_box.rounded = true
 	spin_box.set_anchors_preset(Control.PRESET_FULL_RECT)
-	spin_box.connect("value_changed", self, "set_int_value")
+	spin_box.connect("value_changed", set_int_value)
 	add_child(spin_box)
 
 func set_int_value(value) -> void:

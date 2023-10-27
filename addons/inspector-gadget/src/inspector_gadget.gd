@@ -90,9 +90,9 @@ func populate_value(value) -> void:
 					gadget.subnames = subnames + ":" + property_name
 				else:
 					gadget.subnames = ":" + property_name
-				gadget.connect("change_property_begin", self, "change_property_begin")
-				gadget.connect("change_property_end", self, "change_property_end")
-				gadget.connect("gadget_event", self, "gadget_event")
+				gadget.connect("change_property_begin", change_property_begin)
+				gadget.connect("change_property_end", change_property_end)
+				gadget.connect("gadget_event", gadget_event)
 
 				if 'custom_gadget_paths' in gadget:
 					gadget.custom_gadget_paths = custom_gadget_paths
@@ -125,9 +125,9 @@ func populate_value(value) -> void:
 				gadget.size_flags_horizontal = SIZE_EXPAND_FILL
 				gadget.node_path = "../../../../" + node_path
 				gadget.subnames = subnames + ":" + String(i)
-				gadget.connect("change_property_begin", self, "change_property_begin")
-				gadget.connect("change_property_end", self, "change_property_end")
-				gadget.connect("gadget_event", self, "gadget_event")
+				gadget.connect("change_property_begin", change_property_begin)
+				gadget.connect("change_property_end", change_property_end)
+				gadget.connect("gadget_event", gadget_event)
 
 				if 'custom_gadget_paths' in gadget:
 					gadget.custom_gadget_paths = custom_gadget_paths
@@ -197,9 +197,9 @@ func populate_value(value) -> void:
 				key_gadget.size_flags_horizontal = SIZE_EXPAND_FILL
 				key_gadget.node_path = "../../../../../" + node_path
 				key_gadget.subnames = subnames + ":[keys]:" + String(i)
-				key_gadget.connect("change_property_begin", self, "change_property_begin")
-				key_gadget.connect("change_property_end", self, "change_property_end")
-				key_gadget.connect("gadget_event", self, "gadget_event")
+				key_gadget.connect("change_property_begin", change_property_begin)
+				key_gadget.connect("change_property_end", change_property_end)
+				key_gadget.connect("gadget_event", gadget_event)
 
 				if 'custom_gadget_paths' in key_gadget:
 					key_gadget.custom_gadget_paths = custom_gadget_paths
@@ -218,9 +218,9 @@ func populate_value(value) -> void:
 				value_gadget.size_flags_horizontal = SIZE_EXPAND_FILL
 				value_gadget.node_path = "../../../../../" + node_path
 				value_gadget.subnames = subnames + ":[values]:" + String(i)
-				value_gadget.connect("change_property_begin", self, "change_property_begin")
-				value_gadget.connect("change_property_end", self, "change_property_end")
-				value_gadget.connect("gadget_event", self, "gadget_event")
+				value_gadget.connect("change_property_begin", change_property_begin)
+				value_gadget.connect("change_property_end", change_property_end)
+				value_gadget.connect("gadget_event", gadget_event)
 
 				if 'custom_gadget_paths' in value_gadget:
 					value_gadget.custom_gadget_paths = custom_gadget_paths

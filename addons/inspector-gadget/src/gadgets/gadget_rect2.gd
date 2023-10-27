@@ -50,17 +50,17 @@ func populate_controls() -> void:
 	var size_label = Label.new()
 	size_label.text = "Size"
 
-	var position_gadget = GadgetVector2.new("../../" + node_path, subnames + ":position")
+	var position_gadget = GadgetVector2.new("../../" + node_path.get_concatenated_names(), subnames + ":position")
 	position_gadget.name = "PositionGadget"
 	position_gadget.size_flags_horizontal = SIZE_EXPAND_FILL
-	position_gadget.connect("change_property_begin", self, "change_property_begin")
-	position_gadget.connect("change_property_end", self, "change_property_end")
+	position_gadget.connect("change_property_begin", change_property_begin)
+	position_gadget.connect("change_property_end", change_property_end)
 
-	var size_gadget = GadgetVector2.new("../../" + node_path, subnames + ":size")
+	var size_gadget = GadgetVector2.new("../../" + node_path.get_concatenated_names(), subnames + ":size")
 	size_gadget.name = "SizeGadget"
 	size_gadget.size_flags_horizontal = SIZE_EXPAND_FILL
-	size_gadget.connect("change_property_begin", self, "change_property_begin")
-	size_gadget.connect("change_property_end", self, "change_property_end")
+	size_gadget.connect("change_property_begin", change_property_begin)
+	size_gadget.connect("change_property_end", change_property_end)
 
 	var vbox = VBoxContainer.new()
 	vbox.name = "VBoxContainer"
