@@ -3,13 +3,13 @@ class_name InspectorGadgetUtil
 static func is_array_type(value) -> bool:
 	var is_array = false
 	is_array = is_array or value is Array
-	is_array = is_array or value is PoolByteArray
-	is_array = is_array or value is PoolColorArray
-	is_array = is_array or value is PoolIntArray
-	is_array = is_array or value is PoolRealArray
-	is_array = is_array or value is PoolStringArray
-	is_array = is_array or value is PoolVector2Array
-	is_array = is_array or value is PoolVector3Array
+	is_array = is_array or value is PackedByteArray
+	is_array = is_array or value is PackedColorArray
+	is_array = is_array or value is PackedIntArray
+	is_array = is_array or value is PackedRealArray
+	is_array = is_array or value is PackedStringArray
+	is_array = is_array or value is PackedVector2Array
+	is_array = is_array or value is PackedVector3Array
 	return is_array
 
 static func is_by_ref_type(value) -> bool:

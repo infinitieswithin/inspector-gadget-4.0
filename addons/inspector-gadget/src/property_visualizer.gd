@@ -50,19 +50,19 @@ extends Control
 }:
 	set = set_dictionary_value
 
-@export var pool_byte_array_value := PoolByteArray([0, 1, 2, 3, 7, 15, 31, 63, 127, 255]):
+@export var pool_byte_array_value := PackedByteArray([0, 1, 2, 3, 7, 15, 31, 63, 127, 255]):
 	set = set_pool_byte_array_value
-@export var pool_int_array_value := PoolIntArray([0, 1, 2, 3, 4, 5, 6, 7]):
+@export var pool_int_array_value := PackedIntArray([0, 1, 2, 3, 4, 5, 6, 7]):
 	set = set_pool_int_array_value
-@export var pool_real_array_value := PoolRealArray([0.0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.7, 2.0, 2.3, 2.7, 3.0]):
+@export var pool_real_array_value := PackedRealArray([0.0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.7, 2.0, 2.3, 2.7, 3.0]):
 	set = set_pool_real_array_value
-@export var pool_string_array_value := PoolStringArray(["foo", "bar", "baz"]):
+@export var pool_string_array_value := PackedStringArray(["foo", "bar", "baz"]):
 	set = set_pool_string_array_value
-@export var pool_vector2_array_value := PoolVector2Array([Vector2.ZERO, Vector2.UP * 5, Vector2.RIGHT * 5, Vector2.ONE * 5]):
+@export var pool_vector2_array_value := PackedVector2Array([Vector2.ZERO, Vector2.UP * 5, Vector2.RIGHT * 5, Vector2.ONE * 5]):
 	set = set_pool_vector2_array_value
-@export var pool_vector3_array_value := PoolVector3Array([Vector3.ZERO, Vector3.UP * 10, Vector3.RIGHT * 10, Vector3.BACK * 10]):
+@export var pool_vector3_array_value := PackedVector3Array([Vector3.ZERO, Vector3.UP * 10, Vector3.RIGHT * 10, Vector3.BACK * 10]):
 	set = set_pool_vector3_array_value
-@export var pool_color_array_value := PoolColorArray([Color.red, Color.green, Color.blue, Color.black, Color.white]):
+@export var pool_color_array_value := PackedColorArray([Color.red, Color.green, Color.blue, Color.black, Color.white]):
 	set = set_pool_color_array_value
 
 @export var blacklisted_property := "You'll never find me, Gadget! Wahahahaha!"
@@ -176,43 +176,43 @@ func set_dictionary_value(new_dictionary_value: Dictionary) -> void:
 	print("set dictionary value: ", dictionary_value)
 	update()
 
-func set_pool_byte_array_value(new_pool_byte_array_value: PoolByteArray) -> void:
+func set_pool_byte_array_value(new_pool_byte_array_value: PackedByteArray) -> void:
 	if pool_byte_array_value != new_pool_byte_array_value:
 		pool_byte_array_value = new_pool_byte_array_value
 	print("set pool byte array value: ", pool_byte_array_value)
 	update()
 
-func set_pool_int_array_value(new_pool_int_array_value: PoolIntArray) -> void:
+func set_pool_int_array_value(new_pool_int_array_value: PackedIntArray) -> void:
 	if pool_int_array_value != new_pool_int_array_value:
 		pool_int_array_value = new_pool_int_array_value
 	print("set pool int array value: ", pool_int_array_value)
 	update()
 
-func set_pool_real_array_value(new_pool_real_array_value: PoolRealArray) -> void:
+func set_pool_real_array_value(new_pool_real_array_value: PackedRealArray) -> void:
 	if pool_real_array_value != new_pool_real_array_value:
 		pool_real_array_value = new_pool_real_array_value
 	print("set pool real array value: ", pool_real_array_value)
 	update()
 
-func set_pool_string_array_value(new_pool_string_array_value: PoolStringArray) -> void:
+func set_pool_string_array_value(new_pool_string_array_value: PackedStringArray) -> void:
 	if pool_string_array_value != new_pool_string_array_value:
 		pool_string_array_value = new_pool_string_array_value
 	print("set pool string array value: ", pool_string_array_value)
 	update()
 
-func set_pool_vector2_array_value(new_pool_vector2_array_value: PoolVector2Array) -> void:
+func set_pool_vector2_array_value(new_pool_vector2_array_value: PackedVector2Array) -> void:
 	if pool_vector2_array_value != new_pool_vector2_array_value:
 		pool_vector2_array_value = new_pool_vector2_array_value
 	print("set pool vector2 array value: ", pool_vector2_array_value)
 	update()
 
-func set_pool_vector3_array_value(new_pool_vector3_array_value: PoolVector3Array) -> void:
+func set_pool_vector3_array_value(new_pool_vector3_array_value: PackedVector3Array) -> void:
 	if pool_vector3_array_value != new_pool_vector3_array_value:
 		pool_vector3_array_value = new_pool_vector3_array_value
 	print("set pool vector3 array value: ", pool_vector3_array_value)
 	update()
 
-func set_pool_color_array_value(new_pool_color_array_value: PoolColorArray) -> void:
+func set_pool_color_array_value(new_pool_color_array_value: PackedColorArray) -> void:
 	if pool_color_array_value != new_pool_color_array_value:
 		pool_color_array_value = new_pool_color_array_value
 	print("set pool color array value: ", pool_color_array_value)
@@ -250,19 +250,19 @@ func _draw() -> void:
 	origin += visualize_transform(origin, transform_value)
 	origin += draw_heading(origin, "Array")
 	origin += visualize_array(origin, array_value)
-	origin += draw_heading(origin, "PoolByteArray")
+	origin += draw_heading(origin, "PackedByteArray")
 	origin += visualize_array(origin, pool_byte_array_value)
-	origin += draw_heading(origin, "PoolIntArray")
+	origin += draw_heading(origin, "PackedIntArray")
 	origin += visualize_array(origin, pool_int_array_value)
-	origin += draw_heading(origin, "PoolRealArray")
+	origin += draw_heading(origin, "PackedRealArray")
 	origin += visualize_array(origin, pool_real_array_value)
-	origin += draw_heading(origin, "PoolStringArray")
+	origin += draw_heading(origin, "PackedStringArray")
 	origin += visualize_array(origin, pool_string_array_value)
-	origin += draw_heading(origin, "PoolVector2Array")
+	origin += draw_heading(origin, "PackedVector2Array")
 	origin += visualize_array(origin, pool_vector2_array_value)
-	origin += draw_heading(origin, "PoolVector3Array")
+	origin += draw_heading(origin, "PackedVector3Array")
 	origin += visualize_array(origin, pool_vector3_array_value)
-	origin += draw_heading(origin, "PoolColorArray")
+	origin += draw_heading(origin, "PackedColorArray")
 	origin += visualize_array(origin, pool_color_array_value)
 
 	rect_min_size.y = origin.y
@@ -313,7 +313,7 @@ func visualize_plane(origin: Vector2, plane_value: Plane) -> Vector2:
 	var center = origin + Vector2(20, 20)
 	draw_axes_3d(center, Vector3(20, 20, 20))
 
-	var plane_corners := PoolVector2Array([
+	var plane_corners := PackedVector2Array([
 		center + project_2d(plane_value.project(Vector3(-1.0, 0.0, -1.0) * 10)),
 		center + project_2d(plane_value.project(Vector3(1.0, 0.0, -1.0) * 10)),
 		center + project_2d(plane_value.project(Vector3(1.0, 0.0, 1.0) * 10)),

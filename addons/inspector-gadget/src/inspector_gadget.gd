@@ -168,19 +168,19 @@ func populate_value(value) -> void:
 			if subnames in container_type_hints:
 				type_hint = container_type_hints[subnames]
 			else:
-				if value is PoolByteArray:
+				if value is PackedByteArray:
 					type_hint = 0
-				elif value is PoolIntArray:
+				elif value is PackedIntArray:
 					type_hint = 0
-				elif value is PoolRealArray:
+				elif value is PackedRealArray:
 					type_hint = 0.0
-				elif value is PoolStringArray:
+				elif value is PackedStringArray:
 					type_hint = ""
-				elif value is PoolVector2Array:
+				elif value is PackedVector2Array:
 					type_hint = Vector2.ZERO
-				elif value is PoolVector3Array:
+				elif value is PackedVector3Array:
 					type_hint = Vector3.ZERO
-				elif value is PoolColorArray:
+				elif value is PackedColorArray:
 					type_hint = Color.white
 
 			new_button.connect("pressed", self, "add_array_element", [value, type_hint])
