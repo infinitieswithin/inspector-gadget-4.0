@@ -170,11 +170,11 @@ func update_node() -> void:
 	else:
 		_set_node(null)
 
-func change_property_begin(object, key) -> void:
+func emit_change_property_begin(object, key) -> void:
 	emit_signal("change_property_begin", object, key)
 
-func change_property_end(object, key) -> void:
+func emit_change_property_end(object, key) -> void:
 	emit_signal("change_property_end", object, key)
 
-func gadget_event(event) -> void:
+func emit_gadget_event(event) -> void:
 	emit_signal("gadget_event", event)

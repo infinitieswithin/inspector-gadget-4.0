@@ -13,7 +13,9 @@ func set_placeholder_text(new_placeholder_text: String) -> void:
 		if has_controls():
 			get_controls()[0].placeholder_text = placeholder_text
 
-func _init(in_node_path: NodePath = NodePath(), in_subnames: String = "").(in_node_path, in_subnames):
+func _init(in_node_path: NodePath = NodePath(), in_subnames: String = ""):
+	super(in_node_path, in_subnames)
+
 	pass
 
 static func supports_type(value) -> bool:

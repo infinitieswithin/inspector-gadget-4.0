@@ -7,11 +7,11 @@ var y_axis := "y"
 var z_axis := "z"
 var w_axis := "w"
 
-func _init(in_node_path: NodePath = NodePath(), in_subnames: String = "").(in_node_path, in_subnames):
-	pass
+func _init(in_node_path: NodePath = NodePath(), in_subnames: String = ""):
+	super(in_node_path, in_subnames)
 
 func set_node_path(new_node_path: NodePath):
-	.set_node_path(new_node_path)
+	super.set_node_path(new_node_path)
 
 	if not has_controls():
 		return
@@ -27,7 +27,7 @@ func set_node_path(new_node_path: NodePath):
 	float_gadget_w.node_path = node_path
 
 func set_subnames(new_subnames: String):
-	.set_subnames(new_subnames)
+	super.set_subnames(new_subnames)
 
 	if not has_controls():
 		return
@@ -43,7 +43,7 @@ func set_subnames(new_subnames: String):
 	float_gadget_w.subnames = subnames + ":" + w_axis
 
 static func supports_type(value) -> bool:
-	if value is Plane or value is Quat or value is Color:
+	if value is Plane or value is Quaternion or value is Color:
 		return true
 	return false
 
@@ -92,7 +92,7 @@ func populate_controls() -> void:
 
 	var hbox = HBoxContainer.new()
 	hbox.name = "HBoxContainer"
-	hbox.set_anchors_and_margins_preset(PRESET_WIDE)
+	hbox.anchors_preset = PRESET_FULL_RECT
 	hbox.add_child(label_x)
 	hbox.add_child(float_gadget_x)
 	hbox.add_child(label_y)
