@@ -68,11 +68,11 @@ extends Control
 @export var blacklisted_property := "You'll never find me, Gadget! Wahahahaha!"
 
 func _init() -> void:
-	quat_value = Quat(Vector3(deg2rad(-30), deg2rad(-30), deg2rad(-30)))
+	quat_value = Quat(Vector3(deg_to_rad(-30), deg_to_rad(-30), deg_to_rad(-30)))
 	basis_value = Basis.IDENTITY
-	basis_value = basis_value.rotated(Vector3.UP, deg2rad(45))
-	basis_value = basis_value.rotated(Vector3.RIGHT, deg2rad(45))
-	basis_value = basis_value.rotated(Vector3.FORWARD, deg2rad(45))
+	basis_value = basis_value.rotated(Vector3.UP, deg_to_rad(45))
+	basis_value = basis_value.rotated(Vector3.RIGHT, deg_to_rad(45))
+	basis_value = basis_value.rotated(Vector3.FORWARD, deg_to_rad(45))
 
 func set_bool_value(new_bool_value: bool) -> void:
 	if bool_value != new_bool_value:
