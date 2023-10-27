@@ -76,7 +76,7 @@ func populate_controls() -> void:
 
 	var hbox = HBoxContainer.new()
 	hbox.name = "HBoxContainer"
-	hbox.set_anchors_and_margins_preset(PRESET_WIDE)
+	hbox.set_anchors_preset(Control.PRESET_FULL_RECT)
 	hbox.add_child(label_x)
 	hbox.add_child(float_gadget_x)
 	hbox.add_child(label_y)

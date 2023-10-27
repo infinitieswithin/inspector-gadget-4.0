@@ -63,7 +63,7 @@ func populate_controls() -> void:
 
 	var vbox = VBoxContainer.new()
 	vbox.name = "VBoxContainer"
-	vbox.set_anchors_and_margins_preset(PRESET_WIDE)
+	vbox.set_anchors_preset(Control.PRESET_FULL_RECT)
 	vbox.add_child(label_basis)
 	vbox.add_child(basis_gadget)
 	vbox.add_child(label_origin)

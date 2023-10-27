@@ -17,7 +17,7 @@ func populate_controls() -> void:
 	var line_edit = LineEdit.new()
 	line_edit.name = "LineEdit"
 	line_edit.editable = false
-	line_edit.set_anchors_and_margins_preset(PRESET_WIDE)
+	line_edit.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(line_edit)
 
 func populate_value(value) -> void:

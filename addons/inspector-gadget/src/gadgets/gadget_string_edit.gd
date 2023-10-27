@@ -33,7 +33,7 @@ func populate_controls() -> void:
 	var line_edit = LineEdit.new()
 	line_edit.name = "LineEdit"
 	line_edit.placeholder_text = placeholder_text
-	line_edit.set_anchors_and_margins_preset(PRESET_WIDE)
+	line_edit.set_anchors_preset(Control.PRESET_FULL_RECT)
 	line_edit.connect("text_entered", self, "set_node_value")
 	add_child(line_edit)
 
