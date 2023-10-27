@@ -3,7 +3,7 @@ class_name GadgetStringEdit
 extends InspectorGadgetBase
 
 
-export(String) var placeholder_text setget set_placeholder_text
+@export var placeholder_text setget set_placeholder_text
 
 func set_placeholder_text(new_placeholder_text: String) -> void:
 	if placeholder_text != new_placeholder_text:

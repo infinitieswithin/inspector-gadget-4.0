@@ -3,11 +3,11 @@ class_name InspectorGadget
 extends InspectorGadgetBase
 
 
-export(Array, String) var property_blacklist := []
-export(Dictionary) var custom_gadget_paths := {}
-export(Dictionary) var custom_gadget_metadata := {}
-export(Dictionary) var container_type_hints := {}
-export(bool) var filter_built_in_properties := true
+@export var property_blacklist := []
+@export var custom_gadget_paths := {}
+@export var custom_gadget_metadata := {}
+@export var container_type_hints := {}
+@export var filter_built_in_properties := true
 
 func _init(in_node_path: NodePath = NodePath(), in_subnames: String = "").(in_node_path, in_subnames):
 	pass
