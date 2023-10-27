@@ -20,7 +20,7 @@ extends Control
 	set = set_transform2d_value
 @export var plane_value := Plane(0.0, 1.0, 0.0, 0.0):
 	set = set_plane_value
-@export var quat_value := Quat(PI, 0.0, 0.0, 1.0):
+@export var quat_value := Quaternion(PI, 0.0, 0.0, 1.0):
 	set = set_quat_value
 @export var color_value := Color.orangered:
 	set = set_color_value
@@ -68,7 +68,7 @@ extends Control
 @export var blacklisted_property := "You'll never find me, Gadget! Wahahahaha!"
 
 func _init() -> void:
-	quat_value = Quat(Vector3(deg2rad(-30), deg2rad(-30), deg2rad(-30)))
+	quat_value = Quaternion(Vector3(deg2rad(-30), deg2rad(-30), deg2rad(-30)))
 	basis_value = Basis.IDENTITY
 	basis_value = basis_value.rotated(Vector3.UP, deg2rad(45))
 	basis_value = basis_value.rotated(Vector3.RIGHT, deg2rad(45))

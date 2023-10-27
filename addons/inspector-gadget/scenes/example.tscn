@@ -40,7 +40,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 float_value = 3.14159
-quat_value = Quat( -0.176777, -0.306186, -0.306186, 0.883883 )
+quat_value = Quaternion( -0.176777, -0.306186, -0.306186, 0.883883 )
 basis_value = Basis( 0.853553, 0.5, 0.146447, -0.146447, 0.5, -0.853553, -0.5, 0.707107, 0.5 )
 dictionary_value = {
 "bar": "bar string",

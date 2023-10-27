@@ -20,7 +20,7 @@ extends Control
 	set = set_transform2d_value
 @export var plane_value := Plane(0.0, 1.0, 0.0, 0.0):
 	set = set_plane_value
-@export var quat_value := Quat(PI, 0.0, 0.0, 1.0):
+@export var quat_value := Quaternion(PI, 0.0, 0.0, 1.0):
 	set = set_quat_value
 @export var color_value := Color.orangered:
 	set = set_color_value
