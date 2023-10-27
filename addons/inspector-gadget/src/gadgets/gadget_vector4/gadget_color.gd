@@ -1,6 +1,6 @@
+@tool
 class_name GadgetColor
 extends GadgetVector4
-tool
 
 func _init(in_node_path: NodePath = NodePath(), in_subnames: String = "").(in_node_path, in_subnames):
 	x_axis = "r"

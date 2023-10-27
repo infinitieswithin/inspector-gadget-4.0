@@ -1,6 +1,6 @@
+@tool
 class_name GadgetVector4
 extends InspectorGadgetBase
-tool
 
 var x_axis := "x"
 var y_axis := "y"

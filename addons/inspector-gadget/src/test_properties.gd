@@ -1,5 +1,6 @@
+@tool
 extends Control
-tool
+
 
 export(bool) var bool_value := true setget set_bool_value
 export(int) var int_value := 1 setget set_int_value

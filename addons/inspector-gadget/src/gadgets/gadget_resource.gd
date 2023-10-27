@@ -1,6 +1,7 @@
+@tool
 class_name GadgetResource
 extends InspectorGadgetBase
-tool
+
 
 var custom_gadget_metadata := {}
 

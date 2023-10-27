@@ -1,6 +1,7 @@
+@tool
 class_name GadgetStringEdit
 extends InspectorGadgetBase
-tool
+
 
 export(String) var placeholder_text setget set_placeholder_text
 

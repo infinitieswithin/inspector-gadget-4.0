@@ -1,6 +1,7 @@
+@tool
 class_name GadgetRID
 extends GadgetStringEdit
-tool
+
 
 func _init(in_node_path: NodePath = NodePath(), in_subnames: String = "").(in_node_path, in_subnames):
 	pass

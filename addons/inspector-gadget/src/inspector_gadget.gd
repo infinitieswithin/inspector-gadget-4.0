@@ -1,6 +1,7 @@
+@tool
 class_name InspectorGadget
 extends InspectorGadgetBase
-tool
+
 
 export(Array, String) var property_blacklist := []
 export(Dictionary) var custom_gadget_paths := {}
