@@ -2,21 +2,36 @@
 extends Control
 
 
-@export var bool_value := true setget set_bool_value
-@export var int_value := 1 setget set_int_value
-@export var float_value := PI setget set_float_value
-@export var string_value := "Foo Bar Baz Decafisbad" setget set_string_value
-@export var vector2_value := Vector2(0.0, 0.0) setget set_vector2_value
-@export var rect2_value := Rect2(Vector2(0.0, 0.0), Vector2(40.0, 20.0)) setget set_rect2_value
-@export var vector3_value := Vector3(0.0, 0.0, 0.0) setget set_vector3_value
-@export var transform2d_value := Transform2D(Vector2(1.0, 0.0), Vector2(0.0, 1.0), Vector2(0.0, 0.0)) setget set_transform2d_value
-@export var plane_value := Plane(0.0, 1.0, 0.0, 0.0) setget set_plane_value
-@export var quat_value := Quat(PI, 0.0, 0.0, 1.0) setget set_quat_value
-@export var color_value := Color.orangered setget set_color_value
-@export var aabb_value := AABB(Vector3(-7.5, -7.5, -7.5), Vector3(15.0, 15.0, 15.0)) setget set_aabb_value
-@export var basis_value := Basis(Vector3.RIGHT, Vector3.UP, Vector3.FORWARD) setget set_basis_value
-@export var transform_value := Transform(Basis(Vector3.RIGHT, Vector3.UP, Vector3.FORWARD), Vector3(5.0, 5.0, 5.0)) setget set_transform_value
-@export var rid_value = null setget set_rid_value
+@export var bool_value := true:
+	set = set_bool_value
+@export var int_value := 1:
+	set = set_int_value
+@export var float_value := PI:
+	set = set_float_value
+@export var string_value := "Foo Bar Baz Decafisbad":
+	set = set_string_value
+@export var vector2_value := Vector2(0.0, 0.0):
+	set = set_vector2_value
+@export var rect2_value := Rect2(Vector2(0.0, 0.0), Vector2(40.0, 20.0)):
+	set = set_rect2_value
+@export var vector3_value := Vector3(0.0, 0.0, 0.0):
+	set = set_vector3_value
+@export var transform2d_value := Transform2D(Vector2(1.0, 0.0), Vector2(0.0, 1.0), Vector2(0.0, 0.0)):
+	set = set_transform2d_value
+@export var plane_value := Plane(0.0, 1.0, 0.0, 0.0):
+	set = set_plane_value
+@export var quat_value := Quat(PI, 0.0, 0.0, 1.0):
+	set = set_quat_value
+@export var color_value := Color.orangered:
+	set = set_color_value
+@export var aabb_value := AABB(Vector3(-7.5, -7.5, -7.5), Vector3(15.0, 15.0, 15.0)):
+	set = set_aabb_value
+@export var basis_value := Basis(Vector3.RIGHT, Vector3.UP, Vector3.FORWARD):
+	set = set_basis_value
+@export var transform_value := Transform(Basis(Vector3.RIGHT, Vector3.UP, Vector3.FORWARD), Vector3(5.0, 5.0, 5.0)):
+	set = set_transform_value
+@export var rid_value = null:
+	set = set_rid_value
 
 @export var array_value := [
 	true,
@@ -25,21 +40,30 @@ extends Control
 	"Hello",
 	[1,2,3],
 	["one", "two", "three"]
-] setget set_array_value
+]:
+	set = set_array_value
 
 @export var dictionary_value := {
 	"foo": "foo string",
 	"bar": "bar string",
 	"baz": "baz string",
-} setget set_dictionary_value
+}:
+	set = set_dictionary_value
 
-@export var pool_byte_array_value := PoolByteArray([0, 1, 2, 3, 7, 15, 31, 63, 127, 255]) setget set_pool_byte_array_value
-@export var pool_int_array_value := PoolIntArray([0, 1, 2, 3, 4, 5, 6, 7]) setget set_pool_int_array_value
-@export var pool_real_array_value := PoolRealArray([0.0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.7, 2.0, 2.3, 2.7, 3.0]) setget set_pool_real_array_value
-@export var pool_string_array_value := PoolStringArray(["foo", "bar", "baz"]) setget set_pool_string_array_value
-@export var pool_vector2_array_value := PoolVector2Array([Vector2.ZERO, Vector2.UP * 5, Vector2.RIGHT * 5, Vector2.ONE * 5]) setget set_pool_vector2_array_value
-@export var pool_vector3_array_value := PoolVector3Array([Vector3.ZERO, Vector3.UP * 10, Vector3.RIGHT * 10, Vector3.BACK * 10]) setget set_pool_vector3_array_value
-@export var pool_color_array_value := PoolColorArray([Color.red, Color.green, Color.blue, Color.black, Color.white]) setget set_pool_color_array_value
+@export var pool_byte_array_value := PoolByteArray([0, 1, 2, 3, 7, 15, 31, 63, 127, 255]):
+	set = set_pool_byte_array_value
+@export var pool_int_array_value := PoolIntArray([0, 1, 2, 3, 4, 5, 6, 7]):
+	set = set_pool_int_array_value
+@export var pool_real_array_value := PoolRealArray([0.0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.7, 2.0, 2.3, 2.7, 3.0]):
+	set = set_pool_real_array_value
+@export var pool_string_array_value := PoolStringArray(["foo", "bar", "baz"]):
+	set = set_pool_string_array_value
+@export var pool_vector2_array_value := PoolVector2Array([Vector2.ZERO, Vector2.UP * 5, Vector2.RIGHT * 5, Vector2.ONE * 5]):
+	set = set_pool_vector2_array_value
+@export var pool_vector3_array_value := PoolVector3Array([Vector3.ZERO, Vector3.UP * 10, Vector3.RIGHT * 10, Vector3.BACK * 10]):
+	set = set_pool_vector3_array_value
+@export var pool_color_array_value := PoolColorArray([Color.red, Color.green, Color.blue, Color.black, Color.white]):
+	set = set_pool_color_array_value
 
 @export var blacklisted_property := "You'll never find me, Gadget! Wahahahaha!"
 
