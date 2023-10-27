@@ -9,7 +9,7 @@ func _init(in_node_path: NodePath = NodePath(), in_subnames: String = ""):
 	pass
 
 func set_node_path(new_node_path: NodePath):
-	.set_node_path(new_node_path)
+	super.set_node_path(new_node_path)
 
 	if not has_controls():
 		return
@@ -21,7 +21,7 @@ func set_node_path(new_node_path: NodePath):
 	size_gadget.node_path = node_path
 
 func set_subnames(new_subnames: String):
-	.set_subnames(new_subnames)
+	super.set_subnames(new_subnames)
 
 	if not has_controls():
 		return
@@ -53,14 +53,16 @@ func populate_controls() -> void:
 	var position_gadget = GadgetVector3.new("../../" + node_path.get_concatenated_names(), subnames + ":position")
 	position_gadget.name = "PositionGadget"
 	position_gadget.size_flags_horizontal = SIZE_EXPAND_FILL
-	position_gadget.connect("change_property_begin", change_property_begin)
-	position_gadget.connect("change_property_end", change_property_end)
+	# TODO: Signals
+#	position_gadget.connect("change_property_begin", change_property_begin)
+#	position_gadget.connect("change_property_end", change_property_end)
 
 	var size_gadget = GadgetVector3.new("../../" + node_path.get_concatenated_names(), subnames + ":size")
 	size_gadget.name = "SizeGadget"
 	size_gadget.size_flags_horizontal = SIZE_EXPAND_FILL
-	size_gadget.connect("change_property_begin", change_property_begin)
-	size_gadget.connect("change_property_end", change_property_end)
+	# TODO: Signals
+#	size_gadget.connect("change_property_begin", change_property_begin)
+#	size_gadget.connect("change_property_end", change_property_end)
 
 	var vbox = VBoxContainer.new()
 	vbox.name = "VBoxContainer"

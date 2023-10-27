@@ -5,8 +5,8 @@ static func is_array_type(value) -> bool:
 	is_array = is_array or value is Array
 	is_array = is_array or value is PackedByteArray
 	is_array = is_array or value is PackedColorArray
-	is_array = is_array or value is PackedIntArray
-	is_array = is_array or value is PackedRealArray
+	is_array = is_array or value is PackedInt32Array
+	is_array = is_array or value is PackedFloat32Array
 	is_array = is_array or value is PackedStringArray
 	is_array = is_array or value is PackedVector2Array
 	is_array = is_array or value is PackedVector3Array
@@ -22,17 +22,17 @@ static func is_by_ref_type(value) -> bool:
 const BASIC_TYPE_PROPERTIES := {
 	TYPE_NIL: [],
 	TYPE_INT: [],
-	TYPE_REAL: [],
+	TYPE_FLOAT: [],
 	TYPE_STRING: [],
 	TYPE_VECTOR2: ["x", "y"],
 	TYPE_RECT2: ["position", "size"],
 	TYPE_VECTOR3: ["x", "y", "z"],
 	TYPE_TRANSFORM2D: ["x", "y", "origin"],
 	TYPE_PLANE: ["x", "y", "z", "d"],
-	TYPE_QUAT: ["x", "y", "z", "w"],
+	TYPE_QUATERNION: ["x", "y", "z", "w"],
 	TYPE_AABB: ["position", "size", "end"],
 	TYPE_BASIS: ["x", "y", "z"],
-	TYPE_TRANSFORM: ["basis", "origin"],
+	TYPE_TRANSFORM3D: ["basis", "origin"],
 	TYPE_COLOR: ["r", "g", "b", "a", "h", "s", "v", "r8", "g8", "b8", "a8"],
 	TYPE_NODE_PATH: [],
 	TYPE_RID: []
@@ -45,10 +45,10 @@ const BASIC_TYPE_INT_INDEXED := [
 	TYPE_VECTOR3,
 	TYPE_TRANSFORM2D,
 	TYPE_PLANE,
-	TYPE_QUAT,
+	TYPE_QUATERNION,
 	TYPE_AABB,
 	TYPE_BASIS,
-	TYPE_TRANSFORM,
+	TYPE_TRANSFORM3D,
 	TYPE_COLOR
 ]
 
@@ -63,7 +63,7 @@ static func get_indexed_ex(node: Node, subnames: String):
 	var target = node
 	while true:
 		var property = property_comps[0]
-		property_comps.remove(0)
+		property_comps.remove_at(0)
 
 		if property == "":
 			continue

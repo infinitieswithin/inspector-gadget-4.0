@@ -8,7 +8,7 @@ func _init(in_node_path: NodePath = NodePath(), in_subnames: String = ""):
 	pass
 
 func set_node_path(new_node_path: NodePath):
-	.set_node_path(new_node_path)
+	super.set_node_path(new_node_path)
 
 	if not has_controls():
 		return
@@ -22,7 +22,7 @@ func set_node_path(new_node_path: NodePath):
 	origin_gadget.node_path = node_path
 
 func set_subnames(new_subnames: String):
-	.set_subnames(new_subnames)
+	super.set_subnames(new_subnames)
 
 	if not has_controls():
 		return
@@ -59,20 +59,23 @@ func populate_controls() -> void:
 	var x_axis_gadget = GadgetVector2.new("../../" + node_path.get_concatenated_names(), subnames + ":x")
 	x_axis_gadget.name = "XAxisGadget"
 	x_axis_gadget.size_flags_horizontal = SIZE_EXPAND_FILL
-	x_axis_gadget.connect("change_property_begin", change_property_begin)
-	x_axis_gadget.connect("change_property_end", change_property_end)
+	# TODO: Signals
+#	x_axis_gadget.connect("change_property_begin", change_property_begin)
+#	x_axis_gadget.connect("change_property_end", change_property_end)
 
 	var y_axis_gadget = GadgetVector2.new("../../" + node_path.get_concatenated_names(), subnames + ":y")
 	y_axis_gadget.name = "YAxisGadget"
 	y_axis_gadget.size_flags_horizontal = SIZE_EXPAND_FILL
-	y_axis_gadget.connect("change_property_begin", change_property_begin)
-	y_axis_gadget.connect("change_property_end", change_property_end)
+	# TODO: Signals
+#	y_axis_gadget.connect("change_property_begin", change_property_begin)
+#	y_axis_gadget.connect("change_property_end", change_property_end)
 
 	var origin_gadget = GadgetVector2.new("../../" + node_path.get_concatenated_names(), subnames + ":origin")
 	origin_gadget.name = "OriginGadget"
 	origin_gadget.size_flags_horizontal = SIZE_EXPAND_FILL
-	origin_gadget.connect("change_property_begin", change_property_begin)
-	origin_gadget.connect("change_property_end", change_property_end)
+	# TODO: Signals
+#	origin_gadget.connect("change_property_begin", change_property_begin)
+#	origin_gadget.connect("change_property_end", change_property_end)
 
 	var vbox = VBoxContainer.new()
 	vbox.name = "VBoxContainer"

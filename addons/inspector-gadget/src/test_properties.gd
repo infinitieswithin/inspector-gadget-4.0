@@ -22,7 +22,7 @@ extends Control
 	set = set_plane_value
 @export var quat_value := Quaternion(PI, 0.0, 0.0, 1.0):
 	set = set_quat_value
-@export var color_value := Color.orangered:
+@export var color_value := Color.ORANGERED:
 	set = set_color_value
 @export var aabb_value := AABB(Vector3(-7.5, -7.5, -7.5), Vector3(15.0, 15.0, 15.0)):
 	set = set_aabb_value
@@ -62,7 +62,7 @@ extends Control
 	set = set_pool_vector2_array_value
 @export var pool_vector3_array_value := PackedVector3Array([Vector3.ZERO, Vector3.UP, Vector3.RIGHT, Vector3.BACK]):
 	set = set_pool_vector3_array_value
-@export var pool_color_array_value := PackedColorArray([Color.red, Color.green, Color.blue, Color.black, Color.white]):
+@export var pool_color_array_value := PackedColorArray([Color.RED, COLOR.GREEN, COLOR.BLUE, COLOR.BLACK,Color.WHITE]):
 	set = set_pool_color_array_value
 
 @export var blacklisted_property := "You'll never find me, Gadget! Wahahahaha!"
@@ -258,15 +258,15 @@ func draw_heading(origin: Vector2, text: String) -> Vector2:
 	return Vector2(0, 20)
 
 func visualize_bool(origin: Vector2) -> Vector2:
-	draw_rect(Rect2(origin, Vector2(10, 10)), Color.red if bool_value else Color.blue)
+	draw_rect(Rect2(origin, Vector2(10, 10)), Color.RED IF BOOL_VALUE ELSEColor.BLUE)
 	return Vector2(0, 30)
 
 func visualize_int(origin: Vector2) -> Vector2:
-	draw_rect(Rect2(origin.x * int_value, origin.y, 10, 10), Color.green)
+	draw_rect(Rect2(origin.x * int_value, origin.y, 10, 10), Color.GREEN)
 	return Vector2(0, 30)
 
 func visualize_float(origin: Vector2) -> Vector2:
-	draw_arc(origin + Vector2(10, 10), 10, 0, float_value, 32, Color.white)
+	draw_arc(origin + Vector2(10, 10), 10, 0, float_value, 32, Color.WHITE)
 	return Vector2(0, 40)
 
 func visualize_string(origin: Vector2) -> Vector2:
@@ -274,25 +274,25 @@ func visualize_string(origin: Vector2) -> Vector2:
 	return Vector2(0, 30)
 
 func visualize_vector2(origin: Vector2) -> Vector2:
-	draw_rect(Rect2(origin.x, origin.y, 20, 20), Color.white, false)
+	draw_rect(Rect2(origin.x, origin.y, 20, 20), Color.WHITE,false)
 	var point_pos = origin + vector2_value
-	draw_circle(point_pos, 2, Color.white)
+	draw_circle(point_pos, 2, Color.WHITE)
 	return Vector2(0, 40)
 
 func visualize_rect2(origin: Vector2) -> Vector2:
-	draw_rect(Rect2(origin + rect2_value.position, rect2_value.size), Color.white)
+	draw_rect(Rect2(origin + rect2_value.position, rect2_value.size), Color.WHITE)
 	return Vector2(0, 40)
 
 func visualize_vector3(origin: Vector2) -> Vector2:
 	var center = origin + Vector2(20, 20)
 	draw_axes_3d(center, Vector3(20, 20, 20))
-	draw_circle(center + project_2d(vector3_value), 2.5, Color.white)
+	draw_circle(center + project_2d(vector3_value), 2.5, Color.WHITE)
 	return Vector2(0, 60)
 
 func visualize_transform2d(origin: Vector2) -> Vector2:
 	var t2d_origin = origin + Vector2(20, 20) + transform2d_value.origin
-	draw_line(t2d_origin, t2d_origin + transform2d_value.x * 10, Color.red)
-	draw_line(t2d_origin, t2d_origin + transform2d_value.y * -10, Color.green)
+	draw_line(t2d_origin, t2d_origin + transform2d_value.x * 10, Color.RED)
+	draw_line(t2d_origin, t2d_origin + transform2d_value.y * -10, Color.GREEN)
 	return Vector2(0, 50)
 
 func visualize_plane(origin: Vector2) -> Vector2:
@@ -307,7 +307,7 @@ func visualize_plane(origin: Vector2) -> Vector2:
 		center + project_2d(plane_value.project(Vector3(-1.0, 0.0, -1.0) * 10))
 	])
 
-	draw_polyline(plane_corners, Color.white)
+	draw_polyline(plane_corners, Color.WHITE)
 
 	return Vector2(0, 60)
 
@@ -315,7 +315,7 @@ func visualize_quat(origin: Vector2) -> Vector2:
 	var center = origin + Vector2(20, 20)
 	draw_axes_3d(center, Vector3(20, 20, 20))
 
-	draw_line(center, center + project_2d(quat_value.xform(Vector3.UP * -15)), Color.white)
+	draw_line(center, center + project_2d(quat_value.xform(Vector3.UP * -15)), Color.WHITE)
 
 	return Vector2(0, 60)
 
@@ -331,18 +331,18 @@ func visualize_aabb(origin: Vector2) -> Vector2:
 	for i in range(0, 8):
 		aabb_verts.append(aabb_value.get_endpoint(i))
 
-	draw_line(center + project_2d(aabb_verts[0]), center + project_2d(aabb_verts[1]), Color.white)
-	draw_line(center + project_2d(aabb_verts[0]), center + project_2d(aabb_verts[2]), Color.white)
-	draw_line(center + project_2d(aabb_verts[0]), center + project_2d(aabb_verts[4]), Color.white)
-	draw_line(center + project_2d(aabb_verts[1]), center + project_2d(aabb_verts[3]), Color.white)
-	draw_line(center + project_2d(aabb_verts[1]), center + project_2d(aabb_verts[5]), Color.white)
-	draw_line(center + project_2d(aabb_verts[2]), center + project_2d(aabb_verts[3]), Color.white)
-	draw_line(center + project_2d(aabb_verts[2]), center + project_2d(aabb_verts[6]), Color.white)
-	draw_line(center + project_2d(aabb_verts[3]), center + project_2d(aabb_verts[7]), Color.white)
-	draw_line(center + project_2d(aabb_verts[4]), center + project_2d(aabb_verts[5]), Color.white)
-	draw_line(center + project_2d(aabb_verts[4]), center + project_2d(aabb_verts[6]), Color.white)
-	draw_line(center + project_2d(aabb_verts[5]), center + project_2d(aabb_verts[7]), Color.white)
-	draw_line(center + project_2d(aabb_verts[6]), center + project_2d(aabb_verts[7]), Color.white)
+	draw_line(center + project_2d(aabb_verts[0]), center + project_2d(aabb_verts[1]), Color.WHITE)
+	draw_line(center + project_2d(aabb_verts[0]), center + project_2d(aabb_verts[2]), Color.WHITE)
+	draw_line(center + project_2d(aabb_verts[0]), center + project_2d(aabb_verts[4]), Color.WHITE)
+	draw_line(center + project_2d(aabb_verts[1]), center + project_2d(aabb_verts[3]), Color.WHITE)
+	draw_line(center + project_2d(aabb_verts[1]), center + project_2d(aabb_verts[5]), Color.WHITE)
+	draw_line(center + project_2d(aabb_verts[2]), center + project_2d(aabb_verts[3]), Color.WHITE)
+	draw_line(center + project_2d(aabb_verts[2]), center + project_2d(aabb_verts[6]), Color.WHITE)
+	draw_line(center + project_2d(aabb_verts[3]), center + project_2d(aabb_verts[7]), Color.WHITE)
+	draw_line(center + project_2d(aabb_verts[4]), center + project_2d(aabb_verts[5]), Color.WHITE)
+	draw_line(center + project_2d(aabb_verts[4]), center + project_2d(aabb_verts[6]), Color.WHITE)
+	draw_line(center + project_2d(aabb_verts[5]), center + project_2d(aabb_verts[7]), Color.WHITE)
+	draw_line(center + project_2d(aabb_verts[6]), center + project_2d(aabb_verts[7]), Color.WHITE)
 
 	return Vector2(0, 60)
 
@@ -350,13 +350,13 @@ func visualize_basis(origin: Vector2) -> Vector2:
 	var center = origin + Vector2(20, 20)
 	draw_axes_3d(center, Vector3(20, 20, 20))
 
-	draw_line(center, center + project_2d(basis_value.x * 15.0), Color.darkgray, 3.0)
-	draw_line(center, center + project_2d(basis_value.y * -15.0), Color.darkgray, 3.0)
-	draw_line(center, center + project_2d(basis_value.z * 15.0), Color.darkgray, 3.0)
+	draw_line(center, center + project_2d(basis_value.x * 15.0), Color.DARKGRAY,3.0)
+	draw_line(center, center + project_2d(basis_value.y * -15.0), Color.DARKGRAY,3.0)
+	draw_line(center, center + project_2d(basis_value.z * 15.0), Color.DARKGRAY,3.0)
 
-	draw_line(center, center + project_2d(basis_value.x * 15.0), Color.red, 1.0)
-	draw_line(center, center + project_2d(basis_value.y * -15.0), Color.green, 1.0)
-	draw_line(center, center + project_2d(basis_value.z * 15.0), Color.lightblue, 1.0)
+	draw_line(center, center + project_2d(basis_value.x * 15.0), Color.RED,1.0)
+	draw_line(center, center + project_2d(basis_value.y * -15.0), Color.GREEN,1.0)
+	draw_line(center, center + project_2d(basis_value.z * 15.0), Color.LIGHT_BLUE,1.0)
 
 	return Vector2(0, 60)
 
@@ -364,13 +364,13 @@ func visualize_transform(origin: Vector2) -> Vector2:
 	var center = origin + Vector2(20, 20)
 	draw_axes_3d(center, Vector3(20, 20, 20))
 
-	draw_line(center + project_2d(transform_value.origin), center + project_2d(transform_value.origin + transform_value.basis.x * 15.0), Color.darkgray, 3.0)
-	draw_line(center + project_2d(transform_value.origin), center + project_2d(transform_value.origin + transform_value.basis.y * -15.0), Color.darkgray, 3.0)
-	draw_line(center + project_2d(transform_value.origin), center + project_2d(transform_value.origin + transform_value.basis.z * 15.0), Color.darkgray, 3.0)
+	draw_line(center + project_2d(transform_value.origin), center + project_2d(transform_value.origin + transform_value.basis.x * 15.0), Color.DARKGRAY,3.0)
+	draw_line(center + project_2d(transform_value.origin), center + project_2d(transform_value.origin + transform_value.basis.y * -15.0), Color.DARKGRAY,3.0)
+	draw_line(center + project_2d(transform_value.origin), center + project_2d(transform_value.origin + transform_value.basis.z * 15.0), Color.DARKGRAY,3.0)
 
-	draw_line(center + project_2d(transform_value.origin), center + project_2d(transform_value.origin + transform_value.basis.x * 15.0), Color.red, 1.0)
-	draw_line(center + project_2d(transform_value.origin), center + project_2d(transform_value.origin + transform_value.basis.y * -15.0), Color.green, 1.0)
-	draw_line(center + project_2d(transform_value.origin), center + project_2d(transform_value.origin + transform_value.basis.z * 15.0), Color.blue, 1.0)
+	draw_line(center + project_2d(transform_value.origin), center + project_2d(transform_value.origin + transform_value.basis.x * 15.0), Color.RED,1.0)
+	draw_line(center + project_2d(transform_value.origin), center + project_2d(transform_value.origin + transform_value.basis.y * -15.0), Color.GREEN,1.0)
+	draw_line(center + project_2d(transform_value.origin), center + project_2d(transform_value.origin + transform_value.basis.z * 15.0), Color.BLUE,1.0)
 
 	return Vector2(0, 60)
 
@@ -413,9 +413,9 @@ func visualize_array(origin: Vector2, array: Array) -> Vector2:
 
 
 func draw_axes_3d(center: Vector2, extents: Vector3) -> void:
-	draw_line(center + project_2d(Vector3.LEFT) * extents.x, center + project_2d(Vector3.RIGHT) * extents.x, Color.red)
-	draw_line(center + project_2d(Vector3.UP) * extents.y, center + project_2d(Vector3.DOWN) * extents.y, Color.green)
-	draw_line(center + project_2d(Vector3.FORWARD) * extents.z, center + project_2d(Vector3.BACK) * extents.z, Color.lightblue)
+	draw_line(center + project_2d(Vector3.LEFT) * extents.x, center + project_2d(Vector3.RIGHT) * extents.x, Color.RED)
+	draw_line(center + project_2d(Vector3.UP) * extents.y, center + project_2d(Vector3.DOWN) * extents.y, Color.GREEN)
+	draw_line(center + project_2d(Vector3.FORWARD) * extents.z, center + project_2d(Vector3.BACK) * extents.z, Color.LIGHT_BLUE)
 
 func project_2d(v: Vector3) -> Vector2:
 	return Vector2(v.x + v.z * 0.5, v.y - v.z * 0.5)
